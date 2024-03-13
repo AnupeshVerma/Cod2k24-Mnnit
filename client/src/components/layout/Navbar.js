@@ -53,12 +53,19 @@ function Navbar({ auth: { isAuthenticated, loading, isAdmin }, logout }) {
                   >
                     Dashboard
                   </Link>
-                  <Link
-                    to='/points'
-                    className=' hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium'
-                  >
-                    Points
-                  </Link>
+                  {isAdmin ? (
+                    <Link
+                      to='/admin'
+                      className=' hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium'
+                    >
+                      Evaluate
+                    </Link>
+                  ) : <Link
+                      to='/points'
+                      className=' hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium'
+                    >
+                      Points
+                    </Link>}
                   <Link
                     to='/leaderboard'
                     className=' hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium'
