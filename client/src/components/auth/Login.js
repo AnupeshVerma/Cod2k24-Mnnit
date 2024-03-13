@@ -20,7 +20,7 @@ const Login = ({ login, isAuthenticated, isAdmin }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log('herew is the fp');
+    console.log('here is the fp');
     login(teamName, password);
     console.log(isAuthenticated);
   };
