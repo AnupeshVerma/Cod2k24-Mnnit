@@ -28,7 +28,7 @@ const Dashboard = ({ link }) => {
           <h2 className='text-xl font-semibold'>First Year</h2>
           <p>
             <a
-              href='http://www.google.com'
+              href='https://drive.google.com/drive/folders/1kYrFRtwRXXGAmDUo7ueWuos-ACulRO1B?usp=sharing'
               className='text-blue-500 hover:underline'
             >
               Problem
@@ -39,7 +39,7 @@ const Dashboard = ({ link }) => {
           <h2 className='text-xl font-semibold'>Second Year</h2>
           <p>
             <a
-              href='http://www.google.com'
+              href='https://drive.google.com/drive/folders/1uFMBOg4xMrH-ZuER-lDAmwXU6PxJXttu?usp=sharing'
               className='text-blue-500 hover:underline'
             >
               Problem
@@ -50,7 +50,7 @@ const Dashboard = ({ link }) => {
           <h2 className='text-xl font-semibold'>Third Year</h2>
           <p>
             <a
-              href='http://www.google.com'
+              href='https://drive.google.com/drive/folders/1g-B5YvZUfIbHI8WjCaUwWJhSCo4IR-oK?usp=drive_link'
               className='text-blue-500 hover:underline'
             >
               Problem

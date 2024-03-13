@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
@@ -6,6 +6,9 @@ import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
 import Header from "./Header";
 const Register = ({ setAlert, register, isAuthenticated }) => {
+  useEffect(() => {
+    document.title = "Register";
+  }, []);
   const [formData, setFormData] = useState({
     teamName: "",
     password: "",

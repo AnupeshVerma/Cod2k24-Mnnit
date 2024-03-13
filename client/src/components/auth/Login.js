@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 
 import { Navigate } from "react-router-dom";
 import { connect } from "react-redux";
@@ -8,6 +8,10 @@ import Header from "./Header";
 
 // const navigate = useNavigate();
 const Login = ({ login, isAuthenticated, isAdmin }) => {
+  useEffect(() => {
+    document.title = "LogIn";
+  }, []);
+
   const [formData, setFormData] = useState({
     teamName: "",
     password: "",
