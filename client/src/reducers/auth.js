@@ -8,10 +8,10 @@ import {
   LOGOUT,
   LOGIN_ADMIN,
   SET_LINK,
-} from '../actions/types';
+} from "../actions/types";
 
 const initialState = {
-  token: localStorage.getItem('token'),
+  token: localStorage.getItem("token"),
   user: null,
   isAuthenticated: false,
   loading: true,
@@ -19,7 +19,7 @@ const initialState = {
   link: null,
 };
 
-export default function (state = initialState, action) {
+const authReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -33,7 +33,7 @@ export default function (state = initialState, action) {
 
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
-      localStorage.setItem('token', payload.token);
+      localStorage.setItem("token", payload.token);
       return {
         ...state,
         ...payload,
@@ -41,7 +41,7 @@ export default function (state = initialState, action) {
         loading: false,
       };
     case LOGIN_ADMIN:
-      localStorage.setItem('token', payload.token);
+      localStorage.setItem("token", payload.token);
       return {
         ...state,
         ...payload,
@@ -53,7 +53,7 @@ export default function (state = initialState, action) {
     case AUTH_ERROR:
     case LOGIN_FAIL:
     case LOGOUT:
-      localStorage.removeItem('token');
+      localStorage.removeItem("token");
       return {
         ...state,
         token: null,
@@ -68,4 +68,6 @@ export default function (state = initialState, action) {
     default:
       return state;
   }
-}
+};
+
+export default authReducer;

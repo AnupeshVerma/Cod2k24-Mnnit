@@ -36,10 +36,10 @@ const FormLink = () => {
     const body = JSON.stringify({ day, formLink });
     try {
       console.log(body);
-      const res = await axios.post('/api/admin/form', body, config);
+      await axios.post('/api/admin/form', body, config);
     } catch (err) {
       console.log('dfasdfasdfasdfsdf');
-      const errors = err.response.data.errors;
+      
       console.log(err.msg);
     }
   };

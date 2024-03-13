@@ -7,7 +7,7 @@ const Dashboard = ({ link }) => {
   const [fetch, setfetch] = useState(true);
   const [form, setform] = useState('');
   //   const [a, seta] = useState(0);
-  let check = 0;
+  
   // const handleClick = async () => {
   //   // try {
   //   check++;

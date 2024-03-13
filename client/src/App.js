@@ -6,7 +6,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Points from './components/layout/Points';
 import Landing from './components/layout/Landing';
-import Alert from './components/layout/Alert';
+
 import { loadUser } from './actions/auth';
 // redux
 // import { Provider } from 'react-redux';
