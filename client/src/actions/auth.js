@@ -100,7 +100,7 @@ export const login = (teamName, password) => async (dispatch) => {
   };
   const body = JSON.stringify({ teamName, password });
   try {
-    const res = await axios.post('/api/auth', body, config);
+    const res = await axios.post('https://cod2k24-mnnit.onrender.com/api/auth', body, config);
     if (teamName === 'adminCOD') {
       dispatch({
         type: LOGIN_ADMIN,
