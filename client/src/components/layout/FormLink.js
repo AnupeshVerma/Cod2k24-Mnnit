@@ -30,7 +30,7 @@ const FormLink = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log('herew is the fp');
+    console.log('here is the fp');
     const config = {
       headers: {
         'Content-Type': 'application/json',

@@ -20,7 +20,7 @@ const Evaluate = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log('herew is the fp');
+    console.log('here is the fp');
     const config = {
       headers: {
         'Content-Type': 'application/json',
@@ -36,15 +36,9 @@ const Evaluate = () => {
     try {
       console.log(body);
       const res = await axios.post('https://cod2k24-mnnit.onrender.com/api/admin', body, config);
-      // if (res.status === 200) {
       console.log(res);
-      // alert('Points updated successfully');
-      // }else{
-      //   alert("An error occurred");
-      // }
     } catch (err) {
-      console.log('dfasdfasdfasdfsdf');
-      // const errors = err.response.data.errors;
+      console.log('Unknown error ocurred. Please try again later!');
       console.log(err.msg);
     }
   };
@@ -69,7 +63,128 @@ const Evaluate = () => {
           <div className='my-5 mx-5'>
             <input
               type='number'
-              placeholder='Day'
+              placeholder='Day (eg. 1, 2, 3)
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              '
               name='day'
               minLength='6'
               value={day}
