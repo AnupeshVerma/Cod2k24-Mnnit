@@ -20,7 +20,7 @@ export const loadUser = () => async (dispatch) => {
   }
 
   try {
-    const res = await axios.get('/api/auth');
+    const res = await axios.get('https://cod2k24-mnnit.onrender.com/api/auth');
     dispatch({
       type: USER_LOADED,
       payload: res.data,
@@ -72,7 +72,7 @@ export const register =
     });
     try {
       console.log(body);
-      const res = await axios.post('/api/users', body, config);
+      const res = await axios.post('https://cod2k24-mnnit.onrender.com/api/users', body, config);
       console.log('dsfasdf');
       dispatch({
         type: REGISTER_SUCCESS,
