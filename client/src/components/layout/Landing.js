@@ -6,7 +6,7 @@ const Landing = () => {
     document.title = "COD 2k24";
   }, []);
   return (
-    <section className="h-screen bg-gradient-to-b from-black to-gray-800 flex justify-center items-center">
+    <section className="h-screen bg-gradient-to-b from-black to-gray-800 flex justify-center items-center" >
         <div className="">
           <Link
             to="/register"
