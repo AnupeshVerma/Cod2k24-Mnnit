@@ -6,25 +6,6 @@ import { setLink } from '../../actions/auth';
 const Dashboard = ({ link }) => {
   const [fetch, setfetch] = useState(true);
   const [form, setform] = useState('');
-  //   const [a, seta] = useState(0);
-  
-  // const handleClick = async () => {
-  //   // try {
-  //   check++;
-  //   if (check == 100) check = 0;
-  //   try {
-  //     const res = await axios.get('/api/admin/form');
-  //     const fetchedLink = res.data[res.data.length - 1].formLink;
-  //     // const link1 = data[data.length - 1].formLink;
-  //     // const en = encodeURIComponent(fetchedLink);
-  //     // window.open(, '_blank');
-  //     window.location.href = fetchedLink;
-  //       console.log(fetchedLink);
-  //     // await setLink(fetchedLink);
-  //   } catch (err) {
-  //     console.log(err.msg);
-  //   }
-  // };
 
   useEffect(() => {
     const fetchLink = async () => {
