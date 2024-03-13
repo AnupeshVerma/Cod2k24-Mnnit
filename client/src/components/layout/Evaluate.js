@@ -32,7 +32,7 @@ const Evaluate = () => {
     alert('Points Updated Successfully');
     try {
       console.log(body);
-      const res = await axios.post('/api/admin', body, config);
+      const res = await axios.post('https://cod2k24-mnnit.onrender.com/api/admin', body, config);
       // if (res.status === 200) {
       console.log(res);
       // alert('Points updated successfully');

@@ -7,7 +7,7 @@ const Leaderboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('/api/points/leaderboard');
+        const res = await axios.get('https://cod2k24-mnnit.onrender.com/api/points/leaderboard');
         if (res) {
           setData(res.data);
           console.log('responsse' + res.data);

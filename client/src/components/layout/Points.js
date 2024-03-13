@@ -7,7 +7,7 @@ const Points = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('/api/points');
+        const res = await axios.get('https://cod2k24-mnnit.onrender.com/api/points');
         if (res) {
           setData(res.data);
           console.log('responsse' + res);

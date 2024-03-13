@@ -9,7 +9,7 @@ const Dashboard = ({ link }) => {
 
   useEffect(() => {
     const fetchLink = async () => {
-      const res = await axios.get('/api/admin/form');
+      const res = await axios.get('https://cod2k24-mnnit.onrender.com/api/admin/form');
       const link1 = res.data[res.data.length - 1].formLink;
       setform(link1);
       console.log(link1);
