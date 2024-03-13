@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import { setLink } from '../../actions/auth';
 
 const Dashboard = ({ link }) => {
-  const [fetch, setfetch] = useState(true);
-  const [form, setform] = useState('');
-
   useEffect(() => {
     document.title = "Problems";
   }, []);
@@ -55,9 +51,8 @@ const Dashboard = ({ link }) => {
         <p className='text-lg font-semibold text-center mb-2'>
           Submit your solution
         </p>
-        {console.log(form)}
         <a
-          href={form}
+          href="https://forms.gle/h21bZ9TaBcASadQt9"
           className='cursor-pointer block w-full py-2 px-4 bg-blue-500 text-white rounded-md text-center hover:bg-blue-600'
         >
           Click Here
