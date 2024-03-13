@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Leaderboard = () => {
+  useEffect(() => {
+    document.title = "Leaderboard";
+  }, []);
   const [data, setData] = useState([]);
 
   useEffect(() => {

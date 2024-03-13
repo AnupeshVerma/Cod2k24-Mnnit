@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const FormLink = () => {
+  useEffect(() => {
+    document.title = "Upload Form";
+  }, []);
   const [formData, setFormData] = useState({
     day: '',
     formLink: '',

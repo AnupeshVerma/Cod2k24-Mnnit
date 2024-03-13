@@ -48,7 +48,7 @@ const Login = ({ login, isAuthenticated, isAdmin }) => {
               <div className="text-white w-5/3 h-92 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-zinc-700 dark:border-gray-700">
                 <Header
                   heading="Login"
-                  paragraph="Don't have an account? "
+                  paragraph="Don't have an account? &nbsp;"
                   linkName="Register"
                   linkUrl="/register"
                 />

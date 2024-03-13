@@ -1,9 +1,12 @@
-import React, {  useState } from 'react';
+import React, {  useState, useEffect } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
 
 const Evaluate = () => {
+  useEffect(() => {
+    document.title = "Evaluate";
+  }, []);
   const [formData, setFormData] = useState({
     teamName: '',
     day: '',

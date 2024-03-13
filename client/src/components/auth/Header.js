@@ -6,11 +6,11 @@ const Header = ({ heading, paragraph, linkName, linkUrl = '#' }) => {
       <h2 className='mt-6 text-center text-3xl font-extrabold text-blue'>
         {heading}
       </h2>
-      <p className='mt-2 text-center text-sm text-blue mt-5'>
+      <p className='mt-2 text-center text-sm text-blue'>
         {paragraph}{' '}
         <Link
           to={linkUrl}
-          className='font-medium text-blue-800 hover:text-black-500'
+          className='font-medium text-sky-600 hover:text-black-500'
         >
           {linkName}
         </Link>

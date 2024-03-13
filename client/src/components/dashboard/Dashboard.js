@@ -8,17 +8,10 @@ const Dashboard = ({ link }) => {
   const [form, setform] = useState('');
 
   useEffect(() => {
-    const fetchLink = async () => {
-      const res = await axios.get('https://cod2k24-mnnit.onrender.com/api/admin/form');
-      const link1 = res.data[res.data.length - 1].formLink;
-      setform(link1);
-      console.log(link1);
-    };
-    if (fetch) {
-      fetchLink();
-      setfetch(false);
-    }
-  }, [fetch]);
+    document.title = "Problems";
+  }, []);
+
+ 
 
   return (
     <div className='container mx-auto p-4'>

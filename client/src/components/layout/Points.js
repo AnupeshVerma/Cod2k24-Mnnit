@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Points = () => {
+  useEffect(() => {
+    document.title = "Points";
+  }, []);
   const [data, setData] = useState([]);
 
   useEffect(() => {
