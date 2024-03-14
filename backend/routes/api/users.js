@@ -1,24 +1,24 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { check, validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-// const User = require('../../models/User');
-const Team = require('../../models/Team');
-const config = require('config');
-const auth = require('../../middleware/auth');
+const { check, validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const Team = require("../../models/Team");
+const config = require("config");
+const auth = require("../../middleware/auth");
+
 // signup page... backend.
 router.post(
-  '/',
+  "/",
   [
-    check('teamName', 'TeamName is required').not().isEmpty(),
+    check("teamName", "TeamName is required").not().isEmpty(),
     check(
-      'password',
-      'Please enter a password with 6 characters or more'
+      "password",
+      "Please enter a password with 6 characters or more"
     ).isLength({ min: 6 }),
   ],
   async (req, res) => {
-    console.log('are you coming here');
+    console.log("are you coming here");
     const errors = validationResult(req);
     console.log(errors.isEmpty());
     if (!errors.isEmpty()) {
@@ -39,11 +39,15 @@ router.post(
     } = req.body;
     console.log(teamName);
     try {
-      let team = await Team.findOne({ teamName: teamName, regNo1: regNo1, regNo2: regNo2 });
+      let team = await Team.findOne({
+        teamName: teamName,
+        regNo1: regNo1,
+        regNo2: regNo2,
+      });
       if (team) {
         return res
           .status(400)
-          .json({ errors: [{ msg: 'Team Name already exists' }] });
+          .json({ errors: [{ msg: "Team Name already exists" }] });
       }
       team = new Team({
         teamName: teamName,
@@ -60,7 +64,7 @@ router.post(
       const salt = await bcrypt.genSalt(10);
       team.password = await bcrypt.hash(password, salt);
       await team.save();
-      console.log('Users Created');
+      console.log("Users Created");
       const payload = {
         team: {
           id: team.id,
@@ -69,7 +73,7 @@ router.post(
 
       jwt.sign(
         payload,
-        config.get('jwtsecret'),
+        config.get("jwtsecret"),
         { expiresIn: 360000 },
         (err, token) => {
           if (err) throw err;
@@ -77,31 +81,11 @@ router.post(
         }
       );
     } catch (err) {
-      console.log('Here is the error');
+      console.log("Here is the error");
       console.log(err.message);
-      res.status(500).send('Server error');
+      res.status(500).send("Server error");
     }
   }
 );
-
-// router.get('/:email', auth, async (req, res) => {
-//   try {
-//     const data = await User.findOne({ email: req.params.email });
-//     res.json(data);
-//   } catch (err) {
-//     console.log(err.message);
-//     res.status(500).send('Server error');
-//   }
-// });
-
-// router.get('/id/:id', auth, async (req, res) => {
-//   try {
-//     const data = await User.findOne({ _id: req.params.id });
-//     res.json(data);
-//   } catch (err) {
-//     console.log(err.message);
-//     res.status(500).send('Server error');
-//   }
-// });
 
 module.exports = router;
