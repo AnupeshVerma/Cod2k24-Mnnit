@@ -151,14 +151,44 @@ function Navbar({ auth: { isAuthenticated, loading, isAdmin }, logout }) {
             <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <Link
                 to="/dashboard"
-                className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
+                className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
               >
-                Dashboard
+                Problems
               </Link>
-
-              {!loading && (
-                <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+              {isAdmin ? (
+                <Link
+                  to="/admin"
+                  className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Evaluate
+                </Link>
+              ) : (
+                <Link
+                  to="/points"
+                  className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Points
+                </Link>
               )}
+              <Link
+                to="/leaderboard"
+                className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Leaderboard
+              </Link>
+              {!loading && (
+                <div>{isAuthenticated ? authLinks : guestLinks}</div>
+              )}
+              {isAdmin && (
+                <Link
+                  to="/admin/form"
+                  className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Upload Form
+                </Link>
+              )}
+
+          
             </div>
           </div>
         )}
