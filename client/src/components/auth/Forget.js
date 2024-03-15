@@ -21,10 +21,10 @@ const Forget = ({ setAlert, forget, isAuthenticated }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   // Email should be of @mnnit.ac.in
-  const [isValid, setIsValid] = useState(true);
+  const [validEmail, setvalidEmail] = useState(true);
   const handleChange = (event) => {
     const { value } = event.target;
-    setIsValid(value.endsWith("@mnnit.ac.in"));
+    setvalidEmail(value.endsWith("@mnnit.ac.in"));
   };
 
   const onSubmit = async (e) => {
@@ -72,10 +72,10 @@ const Forget = ({ setAlert, forget, isAuthenticated }) => {
                   // value={teamName}
                   required
                   onChange={(e) => handleChange(e)}
-                  style={{ borderColor: isValid ? "initial" : "red" }}
+                  style={{ borderColor: validEmail ? "initial" : "red" }}
                   className={fixedInputClass}
                 />
-                {!isValid && (
+                {!validEmail && (
                   <p className="text-red-400 text-xs">
                     &nbsp; Email must end with @mnnit.ac.in
                   </p>
@@ -105,16 +105,24 @@ const Forget = ({ setAlert, forget, isAuthenticated }) => {
               </div>
             </div>
             <>
-              {
+              {validEmail ? (
                 <button
                   type="submit"
                   className="group relative w-1/2 mx-auto flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   value="Change"
                 >
-                  {" "}
                   Submit
                 </button>
-              }
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  className="group relative w-1/2 mx-auto flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-gray-400 bg-gray-200 cursor-not-allowed"
+                  value="Change"
+                >
+                  Submit
+                </button>
+              )}
             </>
           </form>
         </div>
