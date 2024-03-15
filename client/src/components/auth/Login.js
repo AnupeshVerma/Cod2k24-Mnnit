@@ -52,7 +52,7 @@ const Login = ({ login, isAuthenticated, isAdmin }) => {
           <Header
             // heading='Forget Password'
             paragraph='Forgot Password? &nbsp;'
-            linkName='Forget'
+            linkName='Change'
             linkUrl='/forget'
           />
           <form className='p-5 mt-8 space-y-6' onSubmit={(e) => onSubmit(e)}>
