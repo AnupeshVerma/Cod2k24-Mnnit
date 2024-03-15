@@ -23,12 +23,12 @@ function Navbar({ auth: { isAuthenticated, loading, isAdmin }, logout }) {
 
   const guestLinks = (
     <>
-      <Link
+      {/* <Link
         to="/register"
         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
       >
         Register
-      </Link>
+      </Link> */}
 
       <Link
         to="/login"
@@ -176,9 +176,6 @@ function Navbar({ auth: { isAuthenticated, loading, isAdmin }, logout }) {
               >
                 Leaderboard
               </Link>
-              {!loading && (
-                <div>{isAuthenticated ? authLinks : guestLinks}</div>
-              )}
               {isAdmin && (
                 <Link
                   to="/admin/form"
@@ -187,8 +184,9 @@ function Navbar({ auth: { isAuthenticated, loading, isAdmin }, logout }) {
                   Upload Form
                 </Link>
               )}
-
-          
+              {!loading && (
+                <div>{isAuthenticated ? authLinks : guestLinks}</div>
+              )}      
             </div>
           </div>
         )}

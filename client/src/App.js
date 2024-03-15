@@ -36,7 +36,7 @@ const App = ({ isAuthenticated }) => {
               <section>
                 {/* <Alert /> */}
                 <Routes>
-                  <Route exact path='/' element={<Landing />} />
+                  <Route exact path='/' element={<Login />} />
                   {/* //modify this */}
                   <Route exact path='/register' element={<Register />} />
                   <Route exact path='/login' element={<Login />} />

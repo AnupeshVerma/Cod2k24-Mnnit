@@ -170,12 +170,6 @@ export const forget =
       });
       dispatch(loadUser());
     } catch (err) {
-      // const errors = err.response.data.errors;
-      // if (errors) {
-      //   errors.forEach((error) =>
-      //     dispatch(setAlert('Password Updation Failed', 'danger'))
-      //   );
-      // }
       console.log(err.msg);
       dispatch({
         type: FORGET_FAIL,
