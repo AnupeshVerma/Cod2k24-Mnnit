@@ -59,7 +59,7 @@ const Forget = ({ setAlert, forget, isAuthenticated }) => {
               </div>
               <div className='my-5 mx-5'>
                 <input
-                  type='text'
+                  type='email'
                   placeholder='College Email'
                   name='email'
                   // value={teamName}
