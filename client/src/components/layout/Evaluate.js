@@ -9,6 +9,7 @@ const Evaluate = () => {
   }, []);
 
   const [teams, setTeams] = useState([]);
+  // const [formData, setFormData] = useState({});
 
   useEffect(() => {
     const fetchTeams = async () => {
@@ -23,7 +24,8 @@ const Evaluate = () => {
     };
     fetchTeams();
     console.log(teams);
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // const [formData, setFormData] = useState([]);
 
