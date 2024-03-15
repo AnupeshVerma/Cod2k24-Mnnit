@@ -4,7 +4,7 @@ import { setLink } from "../../actions/auth";
 
 const Dashboard = ({ link }) => {
   useEffect(() => {
-    document.title = "Problems";
+    document.title = "COD 2k24 | Problems";
   }, []);
 
   return (

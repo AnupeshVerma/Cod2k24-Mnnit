@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const Leaderboard = () => {
   useEffect(() => {
-    document.title = "Leaderboard";
+    document.title = "COD 2k24 | Leaderboard";
   }, []);
   const [data, setData] = useState([]);
 

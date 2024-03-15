@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const Points = () => {
   useEffect(() => {
-    document.title = "Points";
+    document.title = "COD 2k24 | Points";
   }, []);
   const [data, setData] = useState([]);
 

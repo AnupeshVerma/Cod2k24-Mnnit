@@ -5,7 +5,7 @@ import Navbar from "./components/layout/Navbar";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Points from "./components/layout/Points";
-import Landing from "./components/layout/Landing";
+// import Landing from "./components/layout/Landing";
 import { loadUser } from "./actions/auth";
 import store from "./store";
 import setAuthToken from "./utils/setAuthToken";
@@ -36,7 +36,7 @@ const App = ({ isAuthenticated }) => {
               <section>
                 {/* <Alert /> */}
                 <Routes>
-                  <Route exact path='/' element={<Landing />} />
+                  <Route exact path='/' element={<Login />} />
                   {/* //modify this */}
                   <Route exact path='/register' element={<Register />} />
                   <Route exact path='/login' element={<Login />} />
