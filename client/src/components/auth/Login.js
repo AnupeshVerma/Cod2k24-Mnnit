@@ -18,15 +18,25 @@ const Login = ({ login, isAuthenticated, isAdmin }) => {
   });
 
   const { teamName, password } = formData;
+  const [error, setError] = useState("");
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("here is the fp");
-    login(teamName, password);
-    console.log(isAuthenticated);
+    try {
+      const response = await login(teamName, password);
+      console.log("Login successful:", response.data);
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        const errorMessage = error.response.data.errors[0].msg;
+        setError(errorMessage);
+      } else {
+        console.error("An unexpected error occurred:", error);
+        setError("Invalid Credentials.");
+      }
+    }
   };
 
   if (isAuthenticated && isAdmin) {
@@ -91,6 +101,9 @@ const Login = ({ login, isAuthenticated, isAdmin }) => {
                   Login
                 </button>
               }
+              {error && (
+                <p className="text-center text-red-500 text-sm">{error}</p>
+              )}
             </>
           </form>
         </div>
