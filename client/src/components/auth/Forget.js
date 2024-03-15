@@ -22,6 +22,8 @@ const Forget = ({ setAlert, forget, isAuthenticated }) => {
 
   // Email should be of @mnnit.ac.in
   const [validEmail, setvalidEmail] = useState(true);
+  const [matchPass, setmatchPass] = useState(true);
+
   const handleChange = (event) => {
     const { value } = event.target;
     setvalidEmail(value.endsWith('@mnnit.ac.in'));
@@ -30,7 +32,7 @@ const Forget = ({ setAlert, forget, isAuthenticated }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (password !== password2) {
-      setAlert('Passwords do not match', 'danger');
+      setmatchPass(false);
     } else {
       forget({
         teamName,
@@ -122,6 +124,11 @@ const Forget = ({ setAlert, forget, isAuthenticated }) => {
                 >
                   Submit
                 </button>
+              )}
+              {!matchPass && (
+                <p className="text-center text-red-500">
+                  Password do not match.
+                </p>
               )}
             </>
           </form>
