@@ -19,6 +19,7 @@ app.use('/api/points', require('./routes/api/points'));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/admin', require('./routes/api/admin'));
+app.use('/api/forget', require('./routes/api/forget'));
 
 const PORT = process.env.PORT || 5000;
 app.use(cors(corsOptions));

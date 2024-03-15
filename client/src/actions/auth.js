@@ -8,11 +8,13 @@ import {
   AUTH_ERROR,
   LOGIN_ADMIN,
   SET_LINK,
-} from "../actions/types";
+  FORGET_SUCCESS,
+  FORGET_FAIL,
+} from '../actions/types';
 
-import axios from "axios";
-import { setAlert } from "./alert";
-import setAuthToken from "../utils/setAuthToken";
+import axios from 'axios';
+import { setAlert } from './alert';
+import setAuthToken from '../utils/setAuthToken';
 
 export const loadUser = () => async (dispatch) => {
   if (localStorage.token) {
@@ -20,7 +22,7 @@ export const loadUser = () => async (dispatch) => {
   }
 
   try {
-    const res = await axios.get("https://cod2k24-mnnit.onrender.com/api/auth");
+    const res = await axios.get('https://cod2k24-mnnit.onrender.com/api/auth');
     dispatch({
       type: USER_LOADED,
       payload: res.data,
@@ -53,13 +55,13 @@ export const register =
     branch2,
   }) =>
   async (dispatch) => {
-    if (name2 === "") name2 = "dummy";
-    if (regNo2 === "") regNo2 = "dummy";
-    if (year2 === "") year2 = "dummy";
-    if (branch2 === "") branch2 = "dummy";
+    if (name2 === '') name2 = 'dummy';
+    if (regNo2 === '') regNo2 = 'dummy';
+    if (year2 === '') year2 = 'dummy';
+    if (branch2 === '') branch2 = 'dummy';
     const config = {
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     };
     const body = JSON.stringify({
@@ -77,11 +79,11 @@ export const register =
     try {
       console.log(body);
       const res = await axios.post(
-        "https://cod2k24-mnnit.onrender.com/api/users",
+        'https://cod2k24-mnnit.onrender.com/api/users',
         body,
         config
       );
-      console.log("dsfasdf");
+      console.log('dsfasdf');
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data,
@@ -91,7 +93,7 @@ export const register =
       const errors = err.response.data.errors;
       if (errors) {
         errors.forEach((error) =>
-          dispatch(setAlert("Registration Failed", "danger"))
+          dispatch(setAlert('Registration Failed', 'danger'))
         );
       }
       dispatch({
@@ -103,17 +105,17 @@ export const register =
 export const login = (teamName, password) => async (dispatch) => {
   const config = {
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   };
   const body = JSON.stringify({ teamName, password });
   try {
     const res = await axios.post(
-      "https://cod2k24-mnnit.onrender.com/api/auth",
+      'https://cod2k24-mnnit.onrender.com/api/auth',
       body,
       config
     );
-    if (teamName === "adminCOD") {
+    if (teamName === 'adminCOD') {
       dispatch({
         type: LOGIN_ADMIN,
         payload: res.data,
@@ -129,7 +131,7 @@ export const login = (teamName, password) => async (dispatch) => {
     const errors = err.response.data.errors;
     if (errors) {
       errors.forEach((error) =>
-        dispatch(setAlert("Invalid Credentials", "danger"))
+        dispatch(setAlert('Invalid Credentials', 'danger'))
       );
     }
     dispatch({
@@ -141,3 +143,42 @@ export const login = (teamName, password) => async (dispatch) => {
 export const logout = () => (dispatch) => {
   dispatch({ type: LOGOUT });
 };
+
+export const forget =
+  ({ teamName, password }) =>
+  async (dispatch) => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    const body = JSON.stringify({
+      teamName,
+      password,
+    });
+    try {
+      console.log(body);
+      const res = await axios.post(
+        'https://cod2k24-mnnit.onrender.com/api/forget',
+        body,
+        config
+      );
+      console.log('dsfasdf');
+      dispatch({
+        type: FORGET_SUCCESS,
+        payload: res.data,
+      });
+      dispatch(loadUser());
+    } catch (err) {
+      // const errors = err.response.data.errors;
+      // if (errors) {
+      //   errors.forEach((error) =>
+      //     dispatch(setAlert('Password Updation Failed', 'danger'))
+      //   );
+      // }
+      console.log(err.msg);
+      dispatch({
+        type: FORGET_FAIL,
+      });
+    }
+  };
