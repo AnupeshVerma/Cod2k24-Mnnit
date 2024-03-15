@@ -1,24 +1,22 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { check, validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
+const { check, validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs");
 // const User = require('../../models/User');
-const Team = require('../../models/Team');
-const Eval = require('../../models/Eval');
-const jwt = require('jsonwebtoken');
-const auth = require('../../middleware/auth');
-const config = require('config');
-const TotalPoints = require('../../models/TotalPoints');
-const FormLink = require('../../models/FormLink');
+const Team = require("../../models/Team");
+const Eval = require("../../models/Eval");
+const jwt = require("jsonwebtoken");
+const auth = require("../../middleware/auth");
+const config = require("config");
+const TotalPoints = require("../../models/TotalPoints");
+const FormLink = require("../../models/FormLink");
 
-router.post('/', auth, async (req, res) => {
-  console.log('dfasdfs');
+router.post("/", auth, async (req, res) => {
   const { teamName, day, points } = req.body;
   try {
-    console.log('hsadfasdfsd');
     let team = await Team.findOne({ teamName });
     if (!team) {
-      return res.status(400).json({ errors: [{ msg: 'Invalid Team' }] });
+      return res.status(400).json({ errors: [{ msg: "Invalid Team" }] });
     }
     let re = await Eval.findOne({ teamName: teamName, day: day });
     if (re) {
@@ -50,11 +48,11 @@ router.post('/', auth, async (req, res) => {
     }
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
-router.post('/form', auth, async (req, res) => {
+router.post("/form", auth, async (req, res) => {
   const { day, formLink } = req.body;
   try {
     let result = await FormLink.findOne({ day });
@@ -69,7 +67,7 @@ router.post('/form', auth, async (req, res) => {
   }
 });
 
-router.get('/form', auth, async (req, res) => {
+router.get("/form", auth, async (req, res) => {
   try {
     let result = await FormLink.find();
     res.json(result);
