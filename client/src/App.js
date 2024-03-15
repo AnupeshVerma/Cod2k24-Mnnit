@@ -5,7 +5,7 @@ import Navbar from "./components/layout/Navbar";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Points from "./components/layout/Points";
-import Landing from "./components/layout/Landing";
+// import Landing from "./components/layout/Landing";
 import { loadUser } from "./actions/auth";
 import store from "./store";
 import setAuthToken from "./utils/setAuthToken";
