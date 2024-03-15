@@ -69,7 +69,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   return (
     <Fragment>
       <section className="min-h-screen flex justify-center items-center bg-gradient-to-b from-black to-gray-800 py-24">
-        <div className="text-white w-1/2 md:w-4/12 p-2 bg-gray-700 rounded-lg shadow-md shadow-white">
+        <div className="text-white w-4/5 md:w-4/12 p-2 bg-gray-700 rounded-lg shadow-md shadow-white">
           <Header
             heading="Signup to create an account"
             paragraph="Already have an account? "
