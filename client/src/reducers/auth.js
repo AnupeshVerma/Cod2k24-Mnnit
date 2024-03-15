@@ -8,6 +8,8 @@ import {
   LOGOUT,
   LOGIN_ADMIN,
   SET_LINK,
+  FORGET_SUCCESS,
+  FORGET_FAIL
 } from "../actions/types";
 
 const initialState = {
@@ -33,6 +35,7 @@ const authReducer = (state = initialState, action) => {
 
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
+    case FORGET_SUCCESS:
       localStorage.setItem("token", payload.token);
       return {
         ...state,
@@ -53,6 +56,7 @@ const authReducer = (state = initialState, action) => {
     case AUTH_ERROR:
     case LOGIN_FAIL:
     case LOGOUT:
+    case FORGET_FAIL:
       localStorage.removeItem("token");
       return {
         ...state,

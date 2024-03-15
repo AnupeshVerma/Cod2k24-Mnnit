@@ -15,6 +15,7 @@ import { connect } from "react-redux";
 import Leaderboard from "./components/layout/Leaderboard";
 import Evaluate from "./components/layout/Evaluate";
 import FormLink from "./components/layout/FormLink";
+import Forget from "./components/auth/Forget";
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
@@ -28,30 +29,31 @@ const App = ({ isAuthenticated }) => {
     <>
       <Router>
         <Fragment>
-          <div className="relative flex">
-            <div className="flex-1 h-fit">
+          <div className='relative flex'>
+            <div className='flex-1 h-fit'>
               <Navbar />
 
               <section>
                 {/* <Alert /> */}
                 <Routes>
-                  <Route exact path="/" element={<Landing />} />
+                  <Route exact path='/' element={<Landing />} />
                   {/* //modify this */}
-                  <Route exact path="/register" element={<Register />} />
-                  <Route exact path="/login" element={<Login />} />
+                  <Route exact path='/register' element={<Register />} />
+                  <Route exact path='/login' element={<Login />} />
+                  <Route exact path='/forget' element={<Forget />} />
 
                   {/*  after this*/}
                   <Route element={<PrivateRoute />}>
                     {/**private routes we can start from here what we wanto  */}
-                    <Route exact path="/dashboard" element={<Dashboard />} />
-                    <Route exact path="/points" element={<Points />} />
+                    <Route exact path='/dashboard' element={<Dashboard />} />
+                    <Route exact path='/points' element={<Points />} />
                     <Route
                       exact
-                      path="/leaderboard"
+                      path='/leaderboard'
                       element={<Leaderboard />}
                     />
-                    <Route exact path="/admin" element={<Evaluate />} />
-                    <Route exact path="/admin/form" element={<FormLink />} />
+                    <Route exact path='/admin' element={<Evaluate />} />
+                    <Route exact path='/admin/form' element={<FormLink />} />
                   </Route>
                 </Routes>
               </section>
