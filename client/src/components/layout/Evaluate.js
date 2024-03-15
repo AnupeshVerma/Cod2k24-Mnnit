@@ -13,7 +13,9 @@ const Evaluate = () => {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/admin");
+        const res = await axios.get(
+          'https://cod2k24-mnnit.onrender.com/api/admin'
+        );
         setTeams(res.data);
       } catch (error) {
         console.log(error.msg);
@@ -21,7 +23,7 @@ const Evaluate = () => {
     };
     fetchTeams();
     console.log(teams);
-  }, []);
+  });
 
   // const [formData, setFormData] = useState([]);
 
@@ -66,8 +68,6 @@ const Evaluate = () => {
       console.log(err.msg);
     }
   };
-  const fixedInputClass =
-    "rounded-md appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm";
 
   return (
     <div className="pt-24 w-full flex justify-center">
