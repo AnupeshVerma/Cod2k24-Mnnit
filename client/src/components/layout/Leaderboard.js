@@ -3,14 +3,16 @@ import axios from 'axios';
 
 const Leaderboard = () => {
   useEffect(() => {
-    document.title = "COD 2k24 | Leaderboard";
+    document.title = 'COD 2k24 | Leaderboard';
   }, []);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('https://cod2k24-mnnit.onrender.com/api/points/leaderboard');
+        const res = await axios.get(
+          'https://cod2k24-mnnit.onrender.com/api/points/leaderboard'
+        );
         if (res) {
           setData(res.data);
           console.log('responsse' + res.data);
@@ -36,7 +38,7 @@ const Leaderboard = () => {
                 Rank
               </th>
               <th className='px-4 py-2 bg-gray-100 border border-gray-200'>
-                Day
+                Team
               </th>
               <th className='px-4 py-2 bg-gray-100 border border-gray-200'>
                 Points
@@ -53,10 +55,10 @@ const Leaderboard = () => {
                   {index + 1}
                 </td>
                 <td className='px-4 py-2 border border-gray-200'>
-                  {point.teamName}
+                  {point._id}
                 </td>
                 <td className='px-4 py-2 border border-gray-200'>
-                  {point.points}
+                  {point.total}
                 </td>
               </tr>
             ))}

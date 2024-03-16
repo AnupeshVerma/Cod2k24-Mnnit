@@ -26,8 +26,9 @@ router.get("/", auth, async (req, res) => {
 router.get("/leaderboard", auth, async (req, res) => {
   try {
     console.log("sdfasd");
-    const result = await TotalPoints.find().sort({ points: -1 });
-    console.log(result);
+    const result = await Eval.aggregate([
+      { $group: { _id: '$teamName', total: { $sum: '$points' } } },
+    ]).sort({points: -1});
     res.json(result);
   } catch (err) {
     console.error(err.message);

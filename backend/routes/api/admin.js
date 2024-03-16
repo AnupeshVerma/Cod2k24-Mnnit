@@ -13,6 +13,7 @@ const FormLink = require('../../models/FormLink');
 
 router.post('/', auth, async (req, res) => {
   const { teamName, day, points } = req.body;
+  const p1 = parseInt(points);
   try {
     let team = await Team.findOne({ teamName });
     if (!team) {
@@ -21,28 +22,37 @@ router.post('/', auth, async (req, res) => {
     let re = await Eval.findOne({ teamName: teamName, day: day });
     if (re) {
       let p = re.points;
-      // p = parseInt(p);
-      await re.updateOne({ points: points });
+
+      p = parseInt(p);
+      // let p1 = parseInt(points);
+      await re.updateOne({ points: p1 });
+
       let pi = await TotalPoints.findOne({ teamName });
       let point = pi.points;
-      // point = parseInt(point);
+
+      point = parseInt(point);
+      console.log(typeof(point));
       point -= p;
-      let pointsInt = points;
+      let pointsInt = parseInt(points);
       point += pointsInt;
-      let pointStr = point
+
+      let pointStr = point;
       await pi.updateOne({ points: pointStr });
     } else {
-      const ev = new Eval({ teamName: teamName, day: day, points: points });
+      // let p1 = parseInt(points);
+      const ev = new Eval({ teamName: teamName, day: day, points: p1 });
       await ev.save();
       let r = await TotalPoints.findOne({ teamName: teamName });
       if (r) {
-        let point = r.points;
-        let pointsInt = points;
+        let point = parseInt(r.points);
+        let pointsInt = parseInt(points);
         point += pointsInt;
         let pointStr = point;
+        console.log(pointStr);
         await r.updateOne({ points: pointStr });
       } else {
-        const re = new TotalPoints({ teamName: teamName, points: points });
+        // let p1 = parseInt(points);
+        const re = new TotalPoints({ teamName: teamName, points: p1 });
         await re.save();
       }
     }
@@ -77,13 +87,13 @@ router.get('/form', auth, async (req, res) => {
 });
 
 router.get('/', auth, async (req, res) => {
-  try{
+  try {
     let result = await Team.find();
     res.json(result);
     console.log(result);
-  } catch(err){
+  } catch (err) {
     console.log(err.msg);
   }
-})
+});
 
 module.exports = router;

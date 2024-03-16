@@ -116,7 +116,7 @@ const Evaluate = () => {
               <td>
                 <input
                   className="mx-4 py-1 w-16 text-center bg-gray-200 rounded-sm border border-gray-300"
-                  type="text"
+                  type="number"
                   inputMode="numeric"
                   pattern="[0-9]*"
                   name="points"
