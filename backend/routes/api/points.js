@@ -28,7 +28,8 @@ router.get('/leaderboard', auth, async (req, res) => {
     console.log('sdfasd');
     const result = await Eval.aggregate([
       { $group: { _id: '$teamName', total: { $sum: '$points' } } },
-    ]).sort({ total: -1 });
+      { $sort: { total: -1 } },
+    ]);
     res.json(result);
   } catch (err) {
     console.error(err.message);
