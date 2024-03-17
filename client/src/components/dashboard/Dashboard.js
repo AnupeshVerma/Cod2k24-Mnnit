@@ -50,7 +50,7 @@ const Dashboard = ({ link }) => {
           Submit your solution
         </p>
         <a
-          href='https://forms.gle/CF8yXxSoMWWj82vj9'
+          href='https://forms.gle/iD4v9dUChXdPm5wR7'
           className='cursor-pointer block w-full py-2 px-4 bg-blue-500 text-white rounded-md text-center hover:bg-blue-600'
         >
           Click Here
