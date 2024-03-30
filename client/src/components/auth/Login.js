@@ -55,9 +55,9 @@ const Login = ({ login, isAuthenticated, isAdmin }) => {
         <div className="text-white w-4/5 md:w-4/12 bg-gray-700 rounded-lg  shadow-md shadow-white">
           <Header
             heading="Login"
-            // paragraph="Don't have an account? &nbsp;"
-            // linkName="Register"
-            // linkUrl="/register"
+            paragraph="Don't have an account? &nbsp;"
+            linkName="Register"
+            linkUrl="/register"
           />
 
           <form className="p-5 space-y-6" onSubmit={(e) => onSubmit(e)}>
